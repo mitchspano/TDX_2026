@@ -49,3 +49,8 @@ $RECYCLE.BIN/
 
 
 *.claude
+
+data/export
+data/reports
+data/source
+data/target
