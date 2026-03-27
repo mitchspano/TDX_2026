@@ -1,0 +1,260 @@
+<template>
+    <div class="application-view-container">
+
+        <template if:true={isLoading}>
+            <div class="loading-container">
+                <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+            </div>
+        </template>
+
+        <template if:true={error}>
+            <div class="error-container">
+                <div class="error-card">
+                    <div class="error-icon">⚠</div>
+                    <h3 class="error-title">Unable to Load Application</h3>
+                    <template if:true={error.body}>
+                        <p class="error-message">{error.body.message}</p>
+                    </template>
+                    <template if:false={error.body}>
+                        <p class="error-message">An unexpected error occurred</p>
+                    </template>
+                </div>
+            </div>
+        </template>
+
+        <template if:true={hasData}>
+            <div class="content-wrapper">
+                <!-- Job Posting Section -->
+                <div class="section-card job-posting-card">
+                    <div class="card-header">
+                        <div class="header-content">
+                            <span class="section-label">Job Posting</span>
+                            <h1 class="job-title">{applicationData.jobTitle}</h1>
+                            <div class="job-meta">
+                                <span class="meta-item">
+                                    <span class="meta-icon">📍</span>
+                                    {applicationData.location}
+                                </span>
+                                <span class="meta-divider">•</span>
+                                <span class="meta-item">
+                                    <span class="meta-icon">🏢</span>
+                                    {applicationData.department}
+                                </span>
+                                <span class="meta-divider">•</span>
+                                <span class="meta-item">
+                                    <span class="meta-icon">💼</span>
+                                    {applicationData.employmentType}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="header-actions">
+                            <span class={jobStatusClass}>{applicationData.jobStatus}</span>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="job-description">
+                            <lightning-formatted-rich-text
+                                value={applicationData.jobDescription}
+                            ></lightning-formatted-rich-text>
+                        </div>
+
+                        <div class="job-details-grid">
+                            <div class="detail-item">
+                                <span class="detail-label">Salary Range</span>
+                                <span class="detail-value">{applicationData.salaryRange}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Openings</span>
+                                <span class="detail-value">{applicationData.numberOfOpenings}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Posted Date</span>
+                                <span class="detail-value">{formattedPostedDate}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Closing Date</span>
+                                <span class="detail-value">{formattedClosingDate}</span>
+                            </div>
+                        </div>
+
+                        <div class="card-footer">
+                            <button
+                                class="view-record-btn"
+                                data-record-id={applicationData.jobPostingId}
+                                onclick={navigateToRecord}
+                            >
+                                View Full Posting →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Candidate Section -->
+                <div class="section-card candidate-card">
+                    <div class="card-header">
+                        <div class="header-content">
+                            <span class="section-label">Candidate</span>
+                            <h2 class="candidate-name">{applicationData.candidateName}</h2>
+                            <template if:true={applicationData.candidateTitle}>
+                                <p class="candidate-title">{applicationData.candidateTitle}</p>
+                            </template>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <span class="contact-icon">✉️</span>
+                                <div class="contact-info">
+                                    <span class="contact-label">Email</span>
+                                    <a href={candidateEmailLink} class="contact-value">
+                                        {applicationData.candidateEmail}
+                                    </a>
+                                </div>
+                            </div>
+                            <template if:true={applicationData.candidatePhone}>
+                                <div class="contact-item">
+                                    <span class="contact-icon">📞</span>
+                                    <div class="contact-info">
+                                        <span class="contact-label">Phone</span>
+                                        <a href={candidatePhoneLink} class="contact-value">
+                                            {applicationData.candidatePhone}
+                                        </a>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+
+                        <div class="card-footer">
+                            <button
+                                class="view-record-btn"
+                                data-record-id={applicationData.candidateId}
+                                onclick={navigateToRecord}
+                            >
+                                View Contact Record →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Application Section -->
+                <div class="section-card application-card">
+                    <div class="card-header">
+                        <div class="header-content">
+                            <span class="section-label">Application Details</span>
+                            <h2 class="application-number">{applicationData.applicationNumber}</h2>
+                        </div>
+                        <div class="header-actions">
+                            <template if:false={isEditMode}>
+                                <span class={statusClass}>{applicationData.status}</span>
+                                <button class="edit-btn" onclick={handleEdit} title="Edit Application">
+                                    ✏️ Edit
+                                </button>
+                            </template>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <!-- View Mode -->
+                        <template if:false={isEditMode}>
+                            <div class="application-details-grid">
+                                <div class="detail-item">
+                                    <span class="detail-label">Application Date</span>
+                                    <span class="detail-value">{formattedApplicationDate}</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Years of Experience</span>
+                                    <span class="detail-value">{yearsExperienceDisplay}</span>
+                                </div>
+                            </div>
+
+                            <div class="application-details-grid">
+                                <div class="detail-item">
+                                    <span class="detail-label">Status</span>
+                                    <span class="detail-value">{applicationData.status}</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Resume URL</span>
+                                    <span class="detail-value">{applicationData.resumeUrl}</span>
+                                </div>
+                            </div>
+
+                            <template if:true={applicationData.coverLetter}>
+                                <div class="cover-letter-section">
+                                    <h3 class="subsection-title">Cover Letter</h3>
+                                    <div class="cover-letter-content">
+                                        <lightning-formatted-rich-text
+                                            value={applicationData.coverLetter}
+                                        ></lightning-formatted-rich-text>
+                                    </div>
+                                </div>
+                            </template>
+
+                            <template if:true={applicationData.resumeUrl}>
+                                <div class="resume-section">
+                                    <button class="resume-btn" onclick={openResume}>
+                                        <span class="resume-icon">📄</span>
+                                        View Resume
+                                    </button>
+                                </div>
+                            </template>
+                        </template>
+
+                        <!-- Edit Mode -->
+                        <template if:true={isEditMode}>
+                            <lightning-record-edit-form
+                                record-id={recordId}
+                                object-api-name="Job_Application__c"
+                                onsuccess={handleSuccess}
+                                onerror={handleError}
+                            >
+                                <div class="edit-form-grid">
+                                    <div class="form-field">
+                                        <lightning-input-field
+                                            field-name="Application_Date__c"
+                                            variant="label-stacked"
+                                        ></lightning-input-field>
+                                    </div>
+                                    <div class="form-field">
+                                        <lightning-input-field
+                                            field-name="Years_of_Experience__c"
+                                            variant="label-stacked"
+                                        ></lightning-input-field>
+                                    </div>
+                                    <div class="form-field">
+                                        <lightning-input-field
+                                            field-name="Status__c"
+                                            variant="label-stacked"
+                                        ></lightning-input-field>
+                                    </div>
+                                    <div class="form-field">
+                                        <lightning-input-field
+                                            field-name="Resume_URL__c"
+                                            variant="label-stacked"
+                                        ></lightning-input-field>
+                                    </div>
+                                    <div class="form-field full-width">
+                                        <lightning-input-field
+                                            field-name="Cover_Letter__c"
+                                            variant="label-stacked"
+                                        ></lightning-input-field>
+                                    </div>
+                                </div>
+
+                                <div class="edit-actions">
+                                    <button type="submit" class="save-btn">
+                                        💾 Save
+                                    </button>
+                                    <button type="button" class="cancel-btn" onclick={handleCancel}>
+                                        ✖ Cancel
+                                    </button>
+                                </div>
+                            </lightning-record-edit-form>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>
