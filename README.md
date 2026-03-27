@@ -11,10 +11,10 @@ This repository contains demo materials for the TDX 2026 booth showcasing the la
 - ["RunRelevantTests" Deployment Level](/TDX_Instructions/CLI_IDE/RunRelevantTests.md)
 - [Redesigned Apex Test Explorer](/TDX_Instructions/CLI_IDE/ApexTestExplorer.md)
 - [Schema Visualizations](/TDX_Instructions/CLI_IDE/Visualizations.md)
-- [Apex Log Extension & Trace Flag Management](/placeholder#)
-- [Metadata XML Hover & Documentation](/placeholder#)
+- [Apex Log Extension & Trace Flag Management](/TDX_Instructions//CLI_IDE/ApexLogging.md)
+- [Metadata XML Hover & Documentation](/TDX_Instructions//CLI_IDE/MetadataXmlHover.md)
 - [Query Planner](/TDX_Instructions/CLI_IDE/SoqlQuery.md)
-- [Org Management](/placeholder#)
+- [Org Management](/TDX_Instructions/CLI_IDE/OrgManagement.md)
 
 ## Turn Context into Code with Agentforce Vibes
 
