@@ -1,1 +1,6 @@
-SELECT Id, FirstName, LastName FROM Contact
+SELECT Id, Name, Email
+FROM Contact
+WHERE Email != null
+  AND Id IN (SELECT Candidate__c FROM Job_Application__c)
+ORDER BY CreatedDate DESC
+LIMIT 10
