@@ -84,15 +84,12 @@ Debug logs will be saved here. This folder has a periodic interval for fetching 
 
 ## FAQs
 
-| Question                                   | Response                                                                                                                  |
-| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------- |
-| Why am I not seeing any logs?              | Verify trace flag is active, hasn't expired, and wait for periodic sync (1-2 minutes)                                     |
-| How long do trace flags last?              | Duration is set when creating the trace flag, typically 1-24 hours                                                        |
-| What's the difference between debug levels? | Control verbosity for apexCode, database, callout, system, etc. from NONE (silent) to FINEST (maximum detail)            |
-| How do I change the log levels?            | Edit `traceFlags.json`, then use the code lens to create a new trace flag                                                 |
-| Where are logs stored locally?             | `.sfdx/tools/debug/logs` directory. Click "open logs folder" from debug tracing hover to view                            |
-| Can I set trace flags for other users?     | Yes, use USER_DEBUG type (requires appropriate org permissions)                                                           |
-| How do I view Anonymous Apex results?      | Output Panel shows immediate results; detailed log saved to logs folder                                                   |
-| What trace flag types are available?       | DEVELOPER_LOG (you), USER_DEBUG (others), CLASS_TRACING (classes), TRIGGERS (triggers)                                   |
-| How often are logs fetched?                | Periodic interval; wait 1-2 minutes after execution for new logs to appear                                                |
-| What does FINEST vs INFO mean?             | FINEST = maximum detail, larger logs. INFO = less detail, smaller logs                                                    |
+| Question                               | Response                                                                                      |
+| -------------------------------------- | --------------------------------------------------------------------------------------------- |
+| Why am I not seeing any logs?          | Verify trace flag is active, hasn't expired, and wait for periodic sync (1-2 minutes)         |
+| How long do trace flags last?          | Duration is set when creating the trace flag, typically 1-24 hours                            |
+| How do I change the log levels?        | Edit `traceFlags.json`, then use the code lens to create a new trace flag                     |
+| Where are logs stored locally?         | `.sfdx/tools/debug/logs` directory. Click "open logs folder" from debug tracing hover to view |
+| Can I set trace flags for other users? | Yes, use USER_DEBUG type (requires appropriate org permissions)                               |
+| How do I view Anonymous Apex results?  | Output Panel shows immediate results; detailed log saved to logs folder                       |
+| How often are logs fetched?            | Periodic interval; wait 1-2 minutes after execution for new logs to appear                    |

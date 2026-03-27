@@ -50,8 +50,6 @@ Optimize performance by analyzing the query execution plan:
 | ------------------------------------------- | ---------------------------------------------------------------------------------- |
 | Where should I store .soql files?           | In `scripts/soql` or outside `sfdx-project.json` directories to prevent deployment |
 | Why isn't code completion working?          | Run **SFDX: Refresh SObject Definitions** from Command Palette                     |
-| How do I optimize a slow query?             | Use **SFDX: Get Query Plan**, then add indexed filters and avoid NOT operators     |
-| What's the difference between REST/Tooling? | REST queries data records; Tooling queries metadata (ApexClass, ApexTrigger)       |
+| What's the difference between REST/Tooling? | REST queries data records; Tooling queries metadata                                |
 | How do I know if my query uses an index?    | Query plan shows `leadingOperationType: "Index"` (good) or "TableScan" (slow)      |
 | What does relativeCost mean?                | 0-1 scale: < 0.3 (good), 0.3-0.7 (moderate), > 0.7 (needs optimization)            |
-| Can I query custom objects?                 | Yes, after refreshing SObject definitions                                          |

@@ -38,7 +38,4 @@ Documentation is available for all metadata types in the Metadata API, including
 | What files does this work with?             | All Salesforce metadata XML files (.object-meta.xml, .field-meta.xml, .workflow-meta.xml, etc.) |
 | Do I need to enable this feature?           | No, it's built into the Salesforce Extension Pack and works automatically                       |
 | Where does the documentation come from?     | Directly from Salesforce Metadata API Developer Guide                                           |
-| Can I see valid values for enumerations?    | Yes, hover shows the type and enumeration values where applicable                               |
-| Does it work for custom metadata types?     | Yes, documentation is available for all standard and custom metadata                            |
 | What if I need more detailed documentation? | Click through to the Metadata API reference guide for complete details and examples             |
-| Does it work offline?                       | Initial documentation is cached, so basic hover information is available offline                |

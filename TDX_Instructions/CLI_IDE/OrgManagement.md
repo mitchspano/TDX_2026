@@ -79,13 +79,11 @@ The status bar will update to show the new default org, and all Salesforce comma
 
 ## FAQs
 
-| Question                                       | Response                                                                               |
-| ---------------------------------------------- | -------------------------------------------------------------------------------------- |
-| How do I open the Org Browser?                 | Click the Salesforce icon in the Activity Bar, then expand "Salesforce Org Browser"    |
-| What does the cloud icon mean?                 | The metadata exists in the org but not in your local workspace                         |
-| How do I retrieve metadata from the org?       | Right-click the component in Org Browser and select "Retrieve Source from Org"         |
-| How do I switch default orgs?                  | Click the org name in the status bar, select a new org, then click "Click to switch"   |
-| What's the difference between a star and bolt? | Star (⭐) marks the default org, bolt (⚡) indicates a scratch org                     |
-| Can I see sandbox vs production visually?      | Yes, org type indicators and the org details footer show the org type                  |
-| Do I need to authorize orgs first?             | Yes, use "SFDX: Authorize an Org" command to add orgs to the picker                    |
-| How do I know which org I'm working with?      | Check the status bar at the bottom of VS Code - it shows the current default org alias |
+| Question                                  | Response                                                                               |
+| ----------------------------------------- | -------------------------------------------------------------------------------------- |
+| How do I open the Org Browser?            | Click the Salesforce icon in the Activity Bar, then expand "Salesforce Org Browser"    |
+| How do I retrieve metadata from the org?  | Click the download icon on the component in Org Browser                                |
+| How do I switch default orgs?             | Click the org name in the status bar, select a new org, then click "Click to switch"   |
+| Can I see sandbox vs production visually? | Yes, org type indicators and the org details footer show the org type                  |
+| Do I need to authorize orgs first?        | Yes, use "SFDX: Authorize an Org" command to add orgs to the picker                    |
+| How do I know which org I'm working with? | Check the status bar at the bottom of VS Code - it shows the current default org alias |

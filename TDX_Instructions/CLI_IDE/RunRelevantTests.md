@@ -65,7 +65,6 @@ We would expect to see:
 | Question                                         | Response                                                                                                                                         |
 | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | What does RunRelevantTests do?                   | It runs only the Apex tests that cover the classes and triggers being deployed, as determined by Salesforce's code coverage tracking             |
-| When should I use RunRelevantTests?              | Use it for production deployments or validation deploys when you want to ensure your changes are tested without running the entire test suite    |
 | What happens if my code has no test coverage?    | The deployment will fail because Salesforce requires 75% code coverage for production deployments. You'll need to write tests first.             |
 | How is this different from RunLocalTests?        | RunLocalTests runs all tests in your org except managed package tests. RunRelevantTests only runs tests that directly cover your deployed code.  |
 | Does it work for all metadata types?             | RunRelevantTests only applies to Apex classes and triggers. Other metadata types don't require test coverage.                                    |

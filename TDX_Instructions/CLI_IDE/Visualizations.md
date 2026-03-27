@@ -18,7 +18,6 @@ The schema visualization provides an interactive view of your object relationshi
 - **Legend**: Shows definition of colors and line types for different SObject types and relationship types.
 - **Zoom**: Use mouse wheel or pinch gestures to zoom in/out
 - **Pan**: Click and drag to move around the canvas
-- **Follow Relationships**: Click on relationship fields to navigate to related objects
 
 ### FAQs
 

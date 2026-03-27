@@ -52,7 +52,6 @@ This will filter the rendered tests to only the tests which you have in your loc
 | What tests does the Test Explorer show?    | All executable tests in the org, including local project tests and tests already deployed |
 | How do I refresh the test list?            | Click the refresh button at the top of the Test Explorer                                  |
 | Can I run tests from managed packages?     | Yes, if the managed package includes test classes, they will appear in the Test Explorer  |
-| How do I see why a test failed?            | Click on the failed test to view the error message and stack trace                        |
 | Can I run multiple test classes at once?   | Yes, select multiple tests or classes and run them together                               |
 | Does it show code coverage?                | Yes, test results include coverage information for the code being tested                  |
 | How is this different from the old viewer? | The redesigned explorer shows all tests in the org, not just tests in your local project  |
