@@ -9,7 +9,7 @@ This repository contains demo materials for the TDX 2026 booth showcasing the la
 ## Streamline development with the CLI and IDE Extensions
 
 - ["RunRelevantTests" Deployment Level](/TDX_Instructions/CLI_IDE/RunRelevantTests.md)
-- [Redesigned Apex Test Explorer](/placeholder#)
+- [Redesigned Apex Test Explorer](/TDX_Instructions/CLI_IDE/ApexTestExplorer.md)
 - [Schema Visualizations](/TDX_Instructions/CLI_IDE/Visualizations.md)
 - [Apex Log Extension & Trace Flag Management](/placeholder#)
 - [Metadata XML Hover & Documentation](/placeholder#)
