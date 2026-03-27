@@ -10,6 +10,8 @@ Add a comment to the [Contact Trigger](../../force-app/main/default/triggers/Con
 
 Add a comment to the [TA_JobApp_PreventDuplicates Class](../../force-app/main/default/classes/TA_JobApp_PreventDuplicates.cls)
 
+Add a comment to the [JobApplicationTriggerTest Class](../../force-app/main/default/classes/JobApplicationTriggerTest.cls)
+
 ### Step 2: Run Validation Deploy
 
 Perform a validate only deploy with `RunRelevantTests` level:
@@ -18,6 +20,7 @@ Perform a validate only deploy with `RunRelevantTests` level:
 sf project deploy start \
   --source-dir "force-app/main/default/triggers/ContactTrigger.trigger" \
   --source-dir "force-app/main/default/classes/TA_JobApp_PreventDuplicates.cls" \
+  --source-dir "force-app/main/default/classes/JobApplicationTriggerTest.cls" \
   --test-level RunRelevantTests \
   --dry-run \
   --json
@@ -38,22 +41,17 @@ To extract just the test class names that ran:
 sf project deploy start \
   --source-dir "force-app/main/default/triggers/ContactTrigger.trigger" \
   --source-dir "force-app/main/default/classes/TA_JobApp_PreventDuplicates.cls" \
+  --source-dir "force-app/main/default/classes/JobApplicationTriggerTest.cls" \
   --test-level RunRelevantTests \
   --dry-run \
   --json | jq -r '.result.details.runTestResult.successes[].name' | sort -u
 ```
 
-**Example Output:**
+We would expect to see:
 
-```
-ContactTriggerTest
-TA_JobApp_PreventDuplicatesTest
-```
-
-In this demo, RunRelevantTests automatically identified and ran:
-
-- **ContactTriggerTest** - covers the ContactTrigger
-- **TA_JobApp_PreventDuplicatesTest** - covers the TA_JobApp_PreventDuplicates class
+- `ContactTriggerTest` # @IsTest(testFor=...) something in the payload
+- `TA_JobApp_PreventDuplicatesTest` # Discovered by Salesforce
+- `JobApplicationTriggerTest` # Test in the payload
 
 ### Features
 
