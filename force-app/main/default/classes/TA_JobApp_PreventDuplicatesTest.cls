@@ -1,6 +1,5 @@
 /**
  * Test class for TA_JobApp_PreventDuplicates
- * Uses a mock selector to test duplicate prevention logic in memory
  */
 @SuppressWarnings('PMD.ApexUnitTestClassShouldHaveRunAs')
 @IsTest
