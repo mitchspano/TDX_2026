@@ -14,8 +14,7 @@ This repository contains demo materials for the TDX 2026 booth showcasing the la
 - [Apex Log Extension & Trace Flag Management](/placeholder#)
 - [Metadata XML Hover & Documentation](/placeholder#)
 - [Query Planner](/TDX_Instructions/CLI_IDE/SoqlQuery.md)
-- [Org Browser](/placeholder#)
-- [Org Picker](/placeholder#)
+- [Org Management](/placeholder#)
 
 ## Turn Context into Code with Agentforce Vibes
 
