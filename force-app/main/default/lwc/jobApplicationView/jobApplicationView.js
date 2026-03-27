@@ -31,8 +31,8 @@ export default class JobApplicationView extends NavigationMixin(LightningElement
     }
 
     get formattedApplicationDate() {
-        return this.applicationData?.applicationDate
-            ? new Date(this.applicationData.applicationDate).toLocaleDateString('en-US', {
+        return this.applicationData?.Application_Date__c
+            ? new Date(this.applicationData.Application_Date__c).toLocaleDateString('en-US', {
                   year: 'numeric',
                   month: 'long',
                   day: 'numeric'
@@ -41,8 +41,8 @@ export default class JobApplicationView extends NavigationMixin(LightningElement
     }
 
     get formattedPostedDate() {
-        return this.applicationData?.postedDate
-            ? new Date(this.applicationData.postedDate).toLocaleDateString('en-US', {
+        return this.applicationData?.Job_Posting__r?.Posted_Date__c
+            ? new Date(this.applicationData.Job_Posting__r.Posted_Date__c).toLocaleDateString('en-US', {
                   year: 'numeric',
                   month: 'long',
                   day: 'numeric'
@@ -51,8 +51,8 @@ export default class JobApplicationView extends NavigationMixin(LightningElement
     }
 
     get formattedClosingDate() {
-        return this.applicationData?.closingDate
-            ? new Date(this.applicationData.closingDate).toLocaleDateString('en-US', {
+        return this.applicationData?.Job_Posting__r?.Closing_Date__c
+            ? new Date(this.applicationData.Job_Posting__r.Closing_Date__c).toLocaleDateString('en-US', {
                   year: 'numeric',
                   month: 'long',
                   day: 'numeric'
@@ -61,31 +61,37 @@ export default class JobApplicationView extends NavigationMixin(LightningElement
     }
 
     get statusClass() {
-        const status = this.applicationData?.status?.toLowerCase() || '';
+        const status = this.applicationData?.Status__c?.toLowerCase() || '';
         return `status-badge status-${status.replace(/\s+/g, '-')}`;
     }
 
     get jobStatusClass() {
-        const status = this.applicationData?.jobStatus?.toLowerCase() || '';
+        const status = this.applicationData?.Job_Posting__r?.Status__c?.toLowerCase() || '';
         return `job-status-badge status-${status.replace(/\s+/g, '-')}`;
     }
 
     get yearsExperienceDisplay() {
-        const years = this.applicationData?.yearsOfExperience;
+        const years = this.applicationData?.Years_of_Experience__c;
         if (!years) return 'Not specified';
         return years === 1 ? '1 year' : `${years} years`;
     }
 
     get candidateEmailLink() {
-        return this.applicationData?.candidateEmail
-            ? `mailto:${this.applicationData.candidateEmail}`
+        return this.applicationData?.Candidate__r?.Email
+            ? `mailto:${this.applicationData.Candidate__r.Email}`
             : '';
     }
 
     get candidatePhoneLink() {
-        return this.applicationData?.candidatePhone
-            ? `tel:${this.applicationData.candidatePhone}`
+        return this.applicationData?.Candidate__r?.Phone
+            ? `tel:${this.applicationData.Candidate__r.Phone}`
             : '';
+    }
+
+    get candidateName() {
+        const candidate = this.applicationData?.Candidate__r;
+        if (!candidate) return '';
+        return `${candidate.FirstName || ''} ${candidate.LastName || ''}`.trim();
     }
 
     navigateToRecord(event) {
@@ -102,8 +108,8 @@ export default class JobApplicationView extends NavigationMixin(LightningElement
     }
 
     openResume() {
-        if (this.applicationData?.resumeUrl) {
-            window.open(this.applicationData.resumeUrl, '_blank');
+        if (this.applicationData?.Resume_URL__c) {
+            window.open(this.applicationData.Resume_URL__c, '_blank');
         }
     }
 

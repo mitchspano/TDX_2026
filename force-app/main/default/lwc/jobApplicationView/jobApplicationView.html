@@ -29,44 +29,44 @@
                     <div class="card-header">
                         <div class="header-content">
                             <span class="section-label">Job Posting</span>
-                            <h1 class="job-title">{applicationData.jobTitle}</h1>
+                            <h1 class="job-title">{applicationData.Job_Posting__r.Title__c}</h1>
                             <div class="job-meta">
                                 <span class="meta-item">
                                     <span class="meta-icon">📍</span>
-                                    {applicationData.location}
+                                    {applicationData.Job_Posting__r.Location__c}
                                 </span>
                                 <span class="meta-divider">•</span>
                                 <span class="meta-item">
                                     <span class="meta-icon">🏢</span>
-                                    {applicationData.department}
+                                    {applicationData.Job_Posting__r.Department__c}
                                 </span>
                                 <span class="meta-divider">•</span>
                                 <span class="meta-item">
                                     <span class="meta-icon">💼</span>
-                                    {applicationData.employmentType}
+                                    {applicationData.Job_Posting__r.Employment_Type__c}
                                 </span>
                             </div>
                         </div>
                         <div class="header-actions">
-                            <span class={jobStatusClass}>{applicationData.jobStatus}</span>
+                            <span class={jobStatusClass}>{applicationData.Job_Posting__r.Status__c}</span>
                         </div>
                     </div>
 
                     <div class="card-body">
                         <div class="job-description">
                             <lightning-formatted-rich-text
-                                value={applicationData.jobDescription}
+                                value={applicationData.Job_Posting__r.Description__c}
                             ></lightning-formatted-rich-text>
                         </div>
 
                         <div class="job-details-grid">
                             <div class="detail-item">
                                 <span class="detail-label">Salary Range</span>
-                                <span class="detail-value">{applicationData.salaryRange}</span>
+                                <span class="detail-value">{applicationData.Job_Posting__r.Salary_Range__c}</span>
                             </div>
                             <div class="detail-item">
                                 <span class="detail-label">Openings</span>
-                                <span class="detail-value">{applicationData.numberOfOpenings}</span>
+                                <span class="detail-value">{applicationData.Job_Posting__r.Number_of_Openings__c}</span>
                             </div>
                             <div class="detail-item">
                                 <span class="detail-label">Posted Date</span>
@@ -81,7 +81,7 @@
                         <div class="card-footer">
                             <button
                                 class="view-record-btn"
-                                data-record-id={applicationData.jobPostingId}
+                                data-record-id={applicationData.Job_Posting__r.Id}
                                 onclick={navigateToRecord}
                             >
                                 View Full Posting →
@@ -95,9 +95,9 @@
                     <div class="card-header">
                         <div class="header-content">
                             <span class="section-label">Candidate</span>
-                            <h2 class="candidate-name">{applicationData.candidateName}</h2>
-                            <template if:true={applicationData.candidateTitle}>
-                                <p class="candidate-title">{applicationData.candidateTitle}</p>
+                            <h2 class="candidate-name">{candidateName}</h2>
+                            <template if:true={applicationData.Candidate__r.Title}>
+                                <p class="candidate-title">{applicationData.Candidate__r.Title}</p>
                             </template>
                         </div>
                     </div>
@@ -109,17 +109,17 @@
                                 <div class="contact-info">
                                     <span class="contact-label">Email</span>
                                     <a href={candidateEmailLink} class="contact-value">
-                                        {applicationData.candidateEmail}
+                                        {applicationData.Candidate__r.Email}
                                     </a>
                                 </div>
                             </div>
-                            <template if:true={applicationData.candidatePhone}>
+                            <template if:true={applicationData.Candidate__r.Phone}>
                                 <div class="contact-item">
                                     <span class="contact-icon">📞</span>
                                     <div class="contact-info">
                                         <span class="contact-label">Phone</span>
                                         <a href={candidatePhoneLink} class="contact-value">
-                                            {applicationData.candidatePhone}
+                                            {applicationData.Candidate__r.Phone}
                                         </a>
                                     </div>
                                 </div>
@@ -129,7 +129,7 @@
                         <div class="card-footer">
                             <button
                                 class="view-record-btn"
-                                data-record-id={applicationData.candidateId}
+                                data-record-id={applicationData.Candidate__r.Id}
                                 onclick={navigateToRecord}
                             >
                                 View Contact Record →
@@ -143,11 +143,11 @@
                     <div class="card-header">
                         <div class="header-content">
                             <span class="section-label">Application Details</span>
-                            <h2 class="application-number">{applicationData.applicationNumber}</h2>
+                            <h2 class="application-number">{applicationData.Name}</h2>
                         </div>
                         <div class="header-actions">
                             <template if:false={isEditMode}>
-                                <span class={statusClass}>{applicationData.status}</span>
+                                <span class={statusClass}>{applicationData.Status__c}</span>
                                 <button class="edit-btn" onclick={handleEdit} title="Edit Application">
                                     ✏️ Edit
                                 </button>
@@ -172,26 +172,26 @@
                             <div class="application-details-grid">
                                 <div class="detail-item">
                                     <span class="detail-label">Status</span>
-                                    <span class="detail-value">{applicationData.status}</span>
+                                    <span class="detail-value">{applicationData.Status__c}</span>
                                 </div>
                                 <div class="detail-item">
                                     <span class="detail-label">Resume URL</span>
-                                    <span class="detail-value">{applicationData.resumeUrl}</span>
+                                    <span class="detail-value">{applicationData.Resume_URL__c}</span>
                                 </div>
                             </div>
 
-                            <template if:true={applicationData.coverLetter}>
+                            <template if:true={applicationData.Cover_Letter__c}>
                                 <div class="cover-letter-section">
                                     <h3 class="subsection-title">Cover Letter</h3>
                                     <div class="cover-letter-content">
                                         <lightning-formatted-rich-text
-                                            value={applicationData.coverLetter}
+                                            value={applicationData.Cover_Letter__c}
                                         ></lightning-formatted-rich-text>
                                     </div>
                                 </div>
                             </template>
 
-                            <template if:true={applicationData.resumeUrl}>
+                            <template if:true={applicationData.Resume_URL__c}>
                                 <div class="resume-section">
                                     <button class="resume-btn" onclick={openResume}>
                                         <span class="resume-icon">📄</span>
