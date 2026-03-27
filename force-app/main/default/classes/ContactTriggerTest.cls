@@ -11,7 +11,7 @@ private class ContactTriggerTest {
         Email = 'Jane@example.com'
       );
     } catch (Exception e) {
-      Assert.fail(
+      System.Assert.fail(
         'There should be no problems when performing DML on a "Contact" record.'
       );
     }

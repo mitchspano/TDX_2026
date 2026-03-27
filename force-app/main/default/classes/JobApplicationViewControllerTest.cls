@@ -107,6 +107,7 @@ private class JobApplicationViewControllerTest {
   //                UNIT TESTS - PURELY OPERATE IN MEMORY
   // ═══════════════════════════════════════════════════════════════════════════
 
+  @SuppressWarnings('PMD.DetectCopyPasteForApex')
   @IsTest
   static void getJobApplicationDetailsWithMockDataShouldReturnCompleteData() {
     JobApplicationViewController.selector = mockSelector;
@@ -117,44 +118,48 @@ private class JobApplicationViewControllerTest {
     );
     Test.stopTest();
 
-    Assert.isNotNull(result, RESULT_SHOULD_NOT_BE_NULL);
-    Assert.areEqual('Under Review', result.Status__c, STATUS_SHOULD_MATCH);
-    Assert.areEqual(
+    System.Assert.isNotNull(result, RESULT_SHOULD_NOT_BE_NULL);
+    System.Assert.areEqual(
+      'Under Review',
+      result.Status__c,
+      STATUS_SHOULD_MATCH
+    );
+    System.Assert.areEqual(
       8,
       result.Years_of_Experience__c,
       YEARS_EXPERIENCE_SHOULD_MATCH
     );
-    Assert.areEqual(
+    System.Assert.areEqual(
       'Jane',
       result.Candidate__r.FirstName,
       'Candidate first name should match'
     );
-    Assert.areEqual(
+    System.Assert.areEqual(
       'Doe',
       result.Candidate__r.LastName,
       'Candidate last name should match'
     );
-    Assert.areEqual(
+    System.Assert.areEqual(
       'jane.doe@test.com',
       result.Candidate__r.Email,
       EMAIL_SHOULD_MATCH
     );
-    Assert.areEqual(
+    System.Assert.areEqual(
       'Senior Software Engineer',
       result.Candidate__r.Title,
       'Candidate title should match'
     );
-    Assert.areEqual(
+    System.Assert.areEqual(
       'Lead Developer',
       result.Job_Posting__r.Title__c,
       JOB_TITLE_SHOULD_MATCH
     );
-    Assert.areEqual(
+    System.Assert.areEqual(
       'Engineering',
       result.Job_Posting__r.Department__c,
       DEPARTMENT_SHOULD_MATCH
     );
-    Assert.areEqual(
+    System.Assert.areEqual(
       'San Francisco, CA',
       result.Job_Posting__r.Location__c,
       LOCATION_SHOULD_MATCH
@@ -169,9 +174,9 @@ private class JobApplicationViewControllerTest {
     Test.startTest();
     try {
       JobApplicationViewController.getJobApplicationDetails(application.Id);
-      Assert.fail(EXCEPTION_EXPECTED);
+      System.Assert.fail(EXCEPTION_EXPECTED);
     } catch (AuraHandledException e) {
-      Assert.isTrue(
+      System.Assert.isTrue(
         e.getMessage().contains('Error retrieving job application'),
         ERROR_MESSAGE_SHOULD_INDICATE_FAILURE
       );
@@ -198,9 +203,9 @@ private class JobApplicationViewControllerTest {
     );
     Test.stopTest();
 
-    Assert.isNotNull(result, RESULT_SHOULD_NOT_BE_NULL);
-    Assert.areEqual('New', result.Status__c, STATUS_SHOULD_MATCH);
-    Assert.isNull(result.Candidate__r, 'Candidate should be null');
+    System.Assert.isNotNull(result, RESULT_SHOULD_NOT_BE_NULL);
+    System.Assert.areEqual('New', result.Status__c, STATUS_SHOULD_MATCH);
+    System.Assert.isNull(result.Candidate__r, 'Candidate should be null');
   }
 
   @IsTest
@@ -222,9 +227,9 @@ private class JobApplicationViewControllerTest {
     );
     Test.stopTest();
 
-    Assert.isNotNull(result, RESULT_SHOULD_NOT_BE_NULL);
-    Assert.areEqual('New', result.Status__c, STATUS_SHOULD_MATCH);
-    Assert.isNull(result.Job_Posting__r, 'Job Posting should be null');
+    System.Assert.isNotNull(result, RESULT_SHOULD_NOT_BE_NULL);
+    System.Assert.areEqual('New', result.Status__c, STATUS_SHOULD_MATCH);
+    System.Assert.isNull(result.Job_Posting__r, 'Job Posting should be null');
   }
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -245,49 +250,53 @@ private class JobApplicationViewControllerTest {
     );
     Test.stopTest();
 
-    Assert.isNotNull(result, RESULT_SHOULD_NOT_BE_NULL);
-    Assert.areEqual('Under Review', result.Status__c, STATUS_SHOULD_MATCH);
-    Assert.areEqual(
+    System.Assert.isNotNull(result, RESULT_SHOULD_NOT_BE_NULL);
+    System.Assert.areEqual(
+      'Under Review',
+      result.Status__c,
+      STATUS_SHOULD_MATCH
+    );
+    System.Assert.areEqual(
       8,
       result.Years_of_Experience__c,
       YEARS_EXPERIENCE_SHOULD_MATCH
     );
-    Assert.areEqual(
+    System.Assert.areEqual(
       'Jane',
       result.Candidate__r.FirstName,
       'Candidate first name should match'
     );
-    Assert.areEqual(
+    System.Assert.areEqual(
       'Doe',
       result.Candidate__r.LastName,
       'Candidate last name should match'
     );
-    Assert.areEqual(
+    System.Assert.areEqual(
       'jane.doe@example.com',
       result.Candidate__r.Email,
       EMAIL_SHOULD_MATCH
     );
-    Assert.areEqual(
+    System.Assert.areEqual(
       'Senior Software Engineer',
       result.Candidate__r.Title,
       'Candidate title should match'
     );
-    Assert.areEqual(
+    System.Assert.areEqual(
       'Lead Developer',
       result.Job_Posting__r.Title__c,
       JOB_TITLE_SHOULD_MATCH
     );
-    Assert.areEqual(
+    System.Assert.areEqual(
       'Engineering',
       result.Job_Posting__r.Department__c,
       DEPARTMENT_SHOULD_MATCH
     );
-    Assert.areEqual(
+    System.Assert.areEqual(
       'San Francisco, CA',
       result.Job_Posting__r.Location__c,
       LOCATION_SHOULD_MATCH
     );
-    Assert.areEqual(
+    System.Assert.areEqual(
       'Open',
       result.Job_Posting__r.Status__c,
       'Job status should match'
@@ -299,9 +308,9 @@ private class JobApplicationViewControllerTest {
     Test.startTest();
     try {
       JobApplicationViewController.getJobApplicationDetails(application.Id);
-      Assert.fail(EXCEPTION_EXPECTED);
+      System.Assert.fail(EXCEPTION_EXPECTED);
     } catch (AuraHandledException e) {
-      Assert.isTrue(
+      System.Assert.isTrue(
         e.getMessage().contains('Error retrieving job application'),
         ERROR_MESSAGE_SHOULD_INDICATE_FAILURE
       );
@@ -346,24 +355,34 @@ private class JobApplicationViewControllerTest {
     );
     Test.stopTest();
 
-    Assert.areEqual(application.Id, result.Id, 'Application ID should match');
-    Assert.areEqual(
+    System.Assert.areEqual(
+      application.Id,
+      result.Id,
+      'Application ID should match'
+    );
+    System.Assert.areEqual(
       application.Name,
       result.Name,
       'Application number should match'
     );
-    Assert.areEqual(
+    System.Assert.areEqual(
       application.Status__c,
       result.Status__c,
       STATUS_SHOULD_MATCH
     );
-    Assert.areEqual(
+    System.Assert.areEqual(
       application.Resume_URL__c,
       result.Resume_URL__c,
       'Resume URL should match'
     );
-    Assert.isNotNull(result.Candidate__r, 'Candidate should not be null');
-    Assert.isNotNull(result.Job_Posting__r, 'Job Posting should not be null');
+    System.Assert.isNotNull(
+      result.Candidate__r,
+      'Candidate should not be null'
+    );
+    System.Assert.isNotNull(
+      result.Job_Posting__r,
+      'Job Posting should not be null'
+    );
   }
 
   @IsTest
@@ -394,10 +413,13 @@ private class JobApplicationViewControllerTest {
     );
     Test.stopTest();
 
-    Assert.isNotNull(result, RESULT_SHOULD_NOT_BE_NULL);
-    Assert.areEqual('New', result.Status__c, STATUS_SHOULD_MATCH);
-    Assert.isNull(result.Years_of_Experience__c, OPTIONAL_FIELD_SHOULD_BE_NULL);
-    Assert.isNull(result.Resume_URL__c, OPTIONAL_FIELD_SHOULD_BE_NULL);
+    System.Assert.isNotNull(result, RESULT_SHOULD_NOT_BE_NULL);
+    System.Assert.areEqual('New', result.Status__c, STATUS_SHOULD_MATCH);
+    System.Assert.isNull(
+      result.Years_of_Experience__c,
+      OPTIONAL_FIELD_SHOULD_BE_NULL
+    );
+    System.Assert.isNull(result.Resume_URL__c, OPTIONAL_FIELD_SHOULD_BE_NULL);
   }
 
   // ═══════════════════════════════════════════════════════════════════════════

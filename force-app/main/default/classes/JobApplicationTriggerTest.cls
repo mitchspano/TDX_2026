@@ -31,7 +31,7 @@ private class JobApplicationTriggerTest {
       );
       insert application;
     } catch (Exception e) {
-      Assert.fail(
+      System.Assert.fail(
         'There should be no problems when performing DML on a "Job_Application__c" record.'
       );
     }

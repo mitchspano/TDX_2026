@@ -12,7 +12,7 @@ private class JobPostingTriggerTest {
         ExternalID__c = 'Job_12345'
       );
     } catch (Exception e) {
-      Assert.fail(
+      System.Assert.fail(
         'There should be no problems when performing DML on a "Job_Posting__c" record.'
       );
     }

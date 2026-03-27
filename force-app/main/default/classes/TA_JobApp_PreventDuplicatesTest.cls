@@ -91,7 +91,7 @@ private class TA_JobApp_PreventDuplicatesTest {
 
     action.beforeInsert(triggerNew);
 
-    Assert.isTrue(triggerNew[0].hasErrors(), ERRORS_EXPECTED);
+    System.Assert.isTrue(triggerNew[0].hasErrors(), ERRORS_EXPECTED);
   }
 
   @IsTest
@@ -101,7 +101,7 @@ private class TA_JobApp_PreventDuplicatesTest {
 
     action.beforeInsert(triggerNew);
 
-    Assert.isFalse(triggerNew[0].hasErrors(), NO_ERRORS_EXPECTED);
+    System.Assert.isFalse(triggerNew[0].hasErrors(), NO_ERRORS_EXPECTED);
   }
 
   @IsTest
@@ -113,7 +113,7 @@ private class TA_JobApp_PreventDuplicatesTest {
 
     action.beforeUpdate(triggerNew, triggerOld);
 
-    Assert.isTrue(triggerNew[0].hasErrors(), ERRORS_EXPECTED);
+    System.Assert.isTrue(triggerNew[0].hasErrors(), ERRORS_EXPECTED);
   }
 
   @IsTest
@@ -125,7 +125,7 @@ private class TA_JobApp_PreventDuplicatesTest {
 
     action.beforeUpdate(triggerNew, triggerOld);
 
-    Assert.isTrue(triggerNew[0].hasErrors(), ERRORS_EXPECTED);
+    System.Assert.isTrue(triggerNew[0].hasErrors(), ERRORS_EXPECTED);
   }
 
   @IsTest
@@ -134,7 +134,7 @@ private class TA_JobApp_PreventDuplicatesTest {
 
     action.beforeUpdate(triggerNew, triggerOld);
 
-    Assert.isFalse(triggerNew[0].hasErrors(), NO_ERRORS_EXPECTED);
+    System.Assert.isFalse(triggerNew[0].hasErrors(), NO_ERRORS_EXPECTED);
   }
 
   @IsTest
@@ -147,7 +147,7 @@ private class TA_JobApp_PreventDuplicatesTest {
 
     action.beforeUpdate(triggerNew, triggerOld);
 
-    Assert.isFalse(triggerNew[0].hasErrors(), NO_ERRORS_EXPECTED);
+    System.Assert.isFalse(triggerNew[0].hasErrors(), NO_ERRORS_EXPECTED);
   }
 
   @IsTest
@@ -160,7 +160,7 @@ private class TA_JobApp_PreventDuplicatesTest {
 
     action.beforeUpdate(triggerNew, triggerOld);
 
-    Assert.isFalse(triggerNew[0].hasErrors(), NO_ERRORS_EXPECTED);
+    System.Assert.isFalse(triggerNew[0].hasErrors(), NO_ERRORS_EXPECTED);
   }
 
   // ═══════════════════════════════════════════════════════════════════════════
@@ -181,14 +181,15 @@ private class TA_JobApp_PreventDuplicatesTest {
       WHERE ExternalId__c = 'Job_12345'
       LIMIT 1
     ];
-
     Job_Application__c application = new Job_Application__c(
       Candidate__c = johnDoe.Id,
       Job_Posting__c = posting.Id,
       Years_of_Experience__c = 12
     );
 
+    Test.startTest();
     Database.SaveResult result = Database.insert(application, false);
+    Test.stopTest();
 
     System.Assert.isFalse(
       result.success,
@@ -209,21 +210,18 @@ private class TA_JobApp_PreventDuplicatesTest {
       Email = 'JaneCoder@test.com'
     );
     insert janeCoder;
-
     Job_Posting__c previousPosting = new Job_Posting__c(
       Title__c = 'Principal Member of Technical Staff',
       Location__c = 'San Francisco',
       Description__c = 'Help Salesforce to make the next generation of developer tooling',
       ExternalID__c = 'Job_54321'
     );
-
     insert previousPosting;
 
     Job_Application__c application = new Job_Application__c(
       Candidate__c = janeCoder.Id,
       Job_Posting__c = previousPosting.Id
     );
-
     insert application;
 
     Contact johnDoe = [
@@ -242,7 +240,9 @@ private class TA_JobApp_PreventDuplicatesTest {
     application.Candidate__c = johnDoe.Id;
     application.Job_Posting__c = posting.Id;
 
+    Test.startTest();
     Database.SaveResult result = Database.update(application, false);
+    Test.stopTest();
 
     System.Assert.isFalse(
       result.success,
