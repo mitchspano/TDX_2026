@@ -2,6 +2,10 @@
 
 This repository contains demo materials for the TDX 2026 booth showcasing the latest innovations in Salesforce developer tooling.
 
+## Booth Setup
+
+- [Setup Steps](/TDX_Instructions/Setup.md)
+
 ## Streamline development with the CLI and IDE Extensions
 
 - ["RunRelevantTests" Deployment Level](/TDX_Instructions/CLI_IDE/RunRelevantTests.md)
