@@ -19,8 +19,7 @@ This repository contains demo materials for the TDX 2026 booth showcasing the la
 ## Turn Context into Code with Agentforce Vibes
 
 - [DX MCP Server - Deploy and Code Analyzer](/TDX_Instructions/Code_to_context/DX_MCP.md)
-- [Skills for Apex (build a queueable)](/placeholder)
-- [LWC Preview in IDE and in browser](/placeholder)
+- [LWC Preview in IDE and in browser](/TDX_Instructions/Code_to_context/LWC_Preview.md)
 
 ## Booth Contact
 

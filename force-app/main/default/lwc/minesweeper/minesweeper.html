@@ -1,0 +1,67 @@
+<template>
+    <lightning-card title="Minesweeper" icon-name="custom:custom14">
+        <div class="slds-p-around_medium">
+            <!-- Controls -->
+            <div class="controls slds-m-bottom_medium">
+                <div class="info-panel">
+                    <div class="info-item">
+                        <lightning-icon icon-name="utility:warning" size="x-small"></lightning-icon>
+                        <span class="slds-m-left_x-small">{minesLeft}</span>
+                    </div>
+                    <div class="info-item">
+                        <lightning-icon icon-name="utility:clock" size="x-small"></lightning-icon>
+                        <span class="slds-m-left_x-small">{timeElapsed}s</span>
+                    </div>
+                    <div class="info-item status">
+                        {gameStatus}
+                    </div>
+                </div>
+
+                <div class="button-panel slds-m-top_small">
+                    <lightning-combobox
+                        name="difficulty"
+                        label="Difficulty"
+                        value="easy"
+                        placeholder="Select Difficulty"
+                        options={difficultyOptions}
+                        onchange={handleDifficultyChange}
+                        class="difficulty-select"
+                    ></lightning-combobox>
+
+                    <lightning-button
+                        label="New Game"
+                        variant="brand"
+                        onclick={handleReset}
+                        class="slds-m-left_small"
+                    ></lightning-button>
+                </div>
+            </div>
+
+            <!-- Game Board -->
+            <div class="game-board" style={gridStyle}>
+                <template for:each={cellContent} for:item="cell">
+                    <div
+                        key={cell.id}
+                        data-id={cell.id}
+                        class={cell.cssClass}
+                        onclick={handleCellClick}
+                        oncontextmenu={handleCellRightClick}
+                    >
+                        {cell.content}
+                    </div>
+                </template>
+            </div>
+
+            <!-- Instructions -->
+            <div class="instructions slds-m-top_medium">
+                <p><strong>How to Play:</strong></p>
+                <ul>
+                    <li>Left click to reveal a cell</li>
+                    <li>Right click to flag/unflag a mine</li>
+                    <li>Numbers show how many mines are adjacent</li>
+                    <li>Reveal all non-mine cells to win!</li>
+                </ul>
+            </div>
+        </div>
+    </lightning-card>
+</template>
