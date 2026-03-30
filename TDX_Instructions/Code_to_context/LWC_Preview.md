@@ -2,6 +2,8 @@
 
 ## Overview
 
+Preview Lightning Web Components locally with hot reload, seeing changes instantly without deploying. Test components in your org or directly in the IDE with real-time updates.
+
 ## Setup
 
 Install lightning dev plugin
@@ -39,3 +41,16 @@ Right click [`minesweeper.html`](../../force-app/main/default/lwc/minesweeper/mi
 This should open a preview of the minesweeper component
 
 ![local dev in org](../images/local_minesweeper.png)
+
+## FAQs
+
+| Question                                        | Response                                                                                      |
+| ----------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| Do I need to deploy changes to see previews?    | No, HTML/CSS/basic JS updates automatically. Wire adapters and @api properties need redeploy  |
+| What types of changes reload automatically?     | HTML attributes, CSS, new component references, JavaScript logic, new files (Spring '25+)     |
+| What changes require manual refresh?            | @api properties, wire adapters, .js-meta.xml, @salesforce imports, service component library |
+| Can I preview Aura components?                  | No, Local Dev only supports Lightning Web Components                                          |
+| Can I use Local Dev on production orgs?         | No, only sandboxes and scratch orgs are supported                                             |
+| How do I preview on mobile devices?             | iOS: `--device-type ios` (Mac/Xcode only), Android: `--device-type android` (Android Studio) |
+| Why isn't my preview updating?                  | Run `sf update` to get latest CLI, or redeploy complex changes and restart preview            |
+| Can I preview multiple components at once?      | Yes, run multiple `sf lightning dev` commands in separate terminals                           |
