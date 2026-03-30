@@ -1,5 +1,5 @@
 /**
- * rigger on Job_Application__c
+ * Trigger on Job_Application__c
  */
 trigger JobApplicationTrigger on Job_Application__c(
   before insert,

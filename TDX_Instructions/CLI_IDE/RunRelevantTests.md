@@ -49,9 +49,9 @@ sf project deploy start \
 
 We would expect to see:
 
-- `ContactTriggerTest` # @IsTest(testFor=...) something in the payload
-- `TA_JobApp_PreventDuplicatesTest` # Discovered by Salesforce
-- `JobApplicationTriggerTest` # Test in the payload
+- `ContactTriggerTest` `@IsTest(testFor=...)` something in the payload
+- `TA_JobApp_PreventDuplicatesTest` Discovered by Salesforce
+- `JobApplicationTriggerTest` Test in the payload
 
 ### Features
 
