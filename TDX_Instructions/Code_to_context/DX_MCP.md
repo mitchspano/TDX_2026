@@ -49,7 +49,7 @@ This should produce a high quality test.
 
 Prompt:
 
-> Now scan `@/force-app/main/default/classes/TA_JobPosting_ValidateDatesTest.cls` for problems and resolve the findings.
+> Now scan `@/force-app/main/default/classes/TA_JobPosting_ValidateDatesTest.cls` for problems using code analyzer and resolve the findings.
 
 If the system prompts you, make sure you select "Salesforce Code Analyzer"
 
