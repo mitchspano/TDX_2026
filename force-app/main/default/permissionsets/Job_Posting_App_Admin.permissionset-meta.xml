@@ -97,13 +97,4 @@
         <readable>true</readable>
     </fieldPermissions>
 
-    <!-- Apex Class Access -->
-    <classAccesses>
-        <apexClass>AccountSearchController</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>AccountSearchControllerTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
 </PermissionSet>
