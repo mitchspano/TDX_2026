@@ -68,13 +68,6 @@
         <readable>true</readable>
     </fieldPermissions>
 
-    <!-- Contact Field Permissions -->
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Contact.ExternalId__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-
     <!-- Job Application Field Permissions -->
     <fieldPermissions>
         <editable>true</editable>

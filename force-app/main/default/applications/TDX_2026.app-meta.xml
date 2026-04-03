@@ -16,5 +16,4 @@
     <tabs>Job_Application__c</tabs>
     <tabs>standard-Contact</tabs>
     <uiType>Lightning</uiType>
-    <utilityBar>TDX_2026_UtilityBar</utilityBar>
 </CustomApplication>
