@@ -1,18 +1,26 @@
-# Salesforce DX Project: Next Steps
+# TDX 2026 Booth Demo: Salesforce Developer Productivity
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+This repository contains demo materials for the TDX 2026 booth showcasing the latest innovations in Salesforce developer tooling.
 
-## How Do You Plan to Deploy Your Changes?
+## Booth Setup
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+- [Setup Steps](/TDX_Instructions/Setup.md)
 
-## Configure Your Salesforce DX Project
+## Streamline development with the CLI and IDE Extensions
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+- ["RunRelevantTests" Deployment Level](/TDX_Instructions/CLI_IDE/RunRelevantTests.md)
+- [Redesigned Apex Test Explorer](/TDX_Instructions/CLI_IDE/ApexTestExplorer.md)
+- [Schema Visualizations](/TDX_Instructions/CLI_IDE/Visualizations.md)
+- [Apex Log Extension & Trace Flag Management](/TDX_Instructions//CLI_IDE/ApexLogging.md)
+- [Metadata XML Hover & Documentation](/TDX_Instructions//CLI_IDE/MetadataXmlHover.md)
+- [Query Planner](/TDX_Instructions/CLI_IDE/SoqlQuery.md)
+- [Org Management](/TDX_Instructions/CLI_IDE/OrgManagement.md)
 
-## Read All About It
+## Turn Context into Code with Agentforce Vibes
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+- [DX MCP Server - Deploy and Code Analyzer](/TDX_Instructions/Code_to_context/DX_MCP.md)
+- [LWC Preview in IDE and in browser](/TDX_Instructions/Code_to_context/LWC_Preview.md)
+
+## Booth Contact
+
+Mitch Spano - [mspano@salesforce.com](mailto:mspano@salesforce.com)

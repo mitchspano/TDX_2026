@@ -46,3 +46,13 @@ $RECYCLE.BIN/
 **/__pycache__/
 **/.venv/
 **/venv/
+
+
+*.claude
+
+data/export
+data/reports
+data/source
+data/target
+
+.sfvibes

@@ -9,3 +9,7 @@
 .vscode
 
 coverage/
+
+# Ignore XML files
+*.xml
+**/*.xml
