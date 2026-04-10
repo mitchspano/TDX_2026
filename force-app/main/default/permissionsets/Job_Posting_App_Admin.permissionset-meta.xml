@@ -87,4 +87,12 @@
         <viewAllFields>false</viewAllFields>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
+    <tabSettings>
+        <tab>Job_Application__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>Job_Posting__c</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
 </PermissionSet>
