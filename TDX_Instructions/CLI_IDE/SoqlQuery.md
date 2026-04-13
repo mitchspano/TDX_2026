@@ -16,20 +16,24 @@ Demonstrate with intelligent autocomplete for SObjects, fields, and relationship
 
 ## Executing Queries
 
-Three execution methods:
+Four execution methods:
 
-1. **Selected Text**: Highlight query → Command Palette → **SFDX: Execute SOQL Query with Currently Selected Text**
-2. **Direct Entry**: Command Palette → **SFDX: Execute SOQL Query...** → Enter query
-3. **SOQL Builder**: Command Palette → **SFDX: Create Query in SOQL Builder** → Visual interface
+1. **Selected Text**: Highlight query → Command Palette → **SFDX: Execute SOQL Query with Currently Selected Text**  
+2. **In a .soql File:** Code lens at the top (if the language of the file is not `soql`, you need to manually change it to `soql` in the status bar for the code lens to appear)  
+3. **In a .soql File:** Command Palette → **SFDX: Execute SOQL Query with Current File**  
+4. **SOQL Builder**: Command Palette → **SFDX: Create Query in SOQL Builder** → Visual interface
 
-Results display in the **Output** pane with record count, field values, and execution time.
+Results display in the **Output** panel with record count, field values, and execution time.
 
 ## Query Plan Analysis
 
-Optimize performance by analyzing the query execution plan:
+Optimize performance by analyzing the query execution plan. Four methods:
 
-1. Command Palette (`Cmd+Shift+P`)
-2. Run: **SFDX: Get Query Plan**
+1. **Selected Text**: Highlight query → Command Palette → **SFDX: Get SOQL Query Plan with Currently Selected Text**  
+2. **In a .soql File:** Code lens at the top (if the language of the file is not `soql`, you need to manually change it to `soql` in the status bar for the code lens to appear)  
+3. **In a .soql File:** Command Palette → **SFDX: Get SOQL Query Plan with Current File**  
+4. **In the SOQL query Builder** → "Get Query Plan" button
+
 
 **Key Metrics**:
 
