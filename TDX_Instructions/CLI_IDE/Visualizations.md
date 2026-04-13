@@ -1,14 +1,14 @@
-# Schema Visualizations
+# Data Model
 
-## Opening the Schema Visualization
+## Opening the Data Model Visualization
 
 When viewing an SObject or a field in VSCode, you'll find a **"Visualize"** button at the top right of the screen. Clicking this button will open the interactive schema visualization tool.
 
-![Schema Visualization](../images/schema_visualization.png)
+![Data Model](../images/schema_visualization.png)
 
 ## Using the Visualization
 
-The schema visualization provides an interactive view of your object relationships and field structures within the project.
+The data model provides an interactive view of your object relationships and field structures within the project.
 
 ### Features
 
